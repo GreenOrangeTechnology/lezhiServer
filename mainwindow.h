@@ -21,17 +21,16 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-public slots:
+private slots:
     void accept_client();
     void read_data();
-
-private slots:
     void on_pushButton_clicked();
     void read_data(QNetworkReply* reply);
 private:
     Ui::MainWindow *ui;
     QTcpServer *server;
     QTcpSocket *socket;
+    QNetworkAccessManager *manger;
 };
 
 #endif // MAINWINDOW_H
