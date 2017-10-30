@@ -16,14 +16,14 @@
 #include <QList>
 #include <weatherlabel.h>
 
+namespace Ui {
+class MainWindow;
+}
+
 #define MAX_CONNECTION 20
 #define HostPort 9875
 #define HostPort2 9876
 #define Server_Address "http://192.168.1.58/weather"
-
-namespace Ui {
-class MainWindow;
-}
 
 class MainWindow : public QMainWindow //提供一个有菜单条、锚接窗口（例如工具条）和一个状态条的主应用程序窗口
 {
@@ -35,13 +35,13 @@ public:
 
 private slots:
     //申请第三方数据
-    void requestWeatherData();
-    void requestNewsData();
+    void requestWeatherData(QNetworkRequest *requestWeatherData);
+    void requestNewsData(QNetworkRequest *requestNewsData);
     void connectToOtherServer();
 
     //与客户端进行交互
     void newConnect();//获取新连接
-    void readMessage();//读取发来的信息
+    void readMessage();//读取发来的信息 判断客户端是否在线 接收数据成功情况 调试信息等
     void sendMessage();//有人来连接就发送一条信息给它
     void readControlOrder();//读取发来的控制命令
     void sendControlOrder();//读取发来的控制命令
@@ -57,7 +57,7 @@ private:
     Ui::MainWindow *ui;
     QTcpServer *server;
     //int connect_num[MAX_CONNECTION];最大连接数
-    QTcpSocket *socket[MAX_CONNECTION];//,*dmSocket;//socket数组怎么搞 普通socket接收终端连接信息等 弹幕socket专门用来发弹幕
+    QTcpSocket *socket[MAX_CONNECTION]; //socket数组怎么搞 普通socket接收终端连接信息等 弹幕socket专门用来发弹幕
     QNetworkAccessManager *manager;//http客户端管理对象,与终端通信
     QNetworkAccessManager *requestWeatherManager;//请求第三方天气数据
     weatherLabel *weaLabel[5];//[]或者数组 ,*weaLabel2

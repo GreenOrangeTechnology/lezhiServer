@@ -39,30 +39,32 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::requestWeatherData(QNetworkRequest *requestWeatherData)
+{
+
+}
+
+void MainWindow::requestNewsData(QNetworkRequest *requestNewsData)
+{
+
+}
+
+void MainWindow::connectToOtherServer()
+{
+
+}
+
 void MainWindow::newConnect()//返回一个读写套接字，这里，可以用一个容器来放读写套接字，这样就不会覆盖
 {
     blocksize = 0;//数据块大小清0
+
+    //connect_num[gConnectNum]->abort();
+    socket[gConnectNum] = server->nextPendingConnection();
     ++gConnectNum;
-    connect_num[gConnectNum]->abort();
-    connect_num[gConnectNum] = server->nextPendingConnection();
     qDebug()<<"新客户端连接";//可以考虑做一个小toast
     //socket = server->nextPendingConnection();
-    connect(connect_num[gConnectNum], SIGNAL(readyRead()),this,SLOT(read_data()));//关联读取数据的信号
-    connect(connect_num[gConnectNum],signal(error(QAbstractSocket::SocketError)),this,SLOT(displayError(QAbstractSocket::SocketError));
-}
-
-//void MainWindow::accept_client2()
-//{
-//    qDebug()<<"弹幕就绪";
-//    dmSocket = server2->nextPendingConnection();
-//    connect(dmSocket, SIGNAL(readyRead()),this,SLOT(read_dmData()));
-//}
-
-void MainWindow::read_data()
-{
-    //判断客户端是否在线 接收数据成功情况 调试信息等
-    QString msg = socket->readAll();
-    qDebug()<<msg;
+    connect(socket[gConnectNum], SIGNAL(readyRead()),this,SLOT(read_data()));//关联读取数据的信号
+    //connect(socket[gConnectNum], SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(displayError(QAbstractSocket::SocketError));
 }
 
 void MainWindow::sendMessage()
@@ -78,6 +80,16 @@ void MainWindow::sendMessage()
 
 }
 
+void MainWindow::readControlOrder()
+{
+
+}
+
+void MainWindow::sendControlOrder()
+{
+
+}
+
 void MainWindow::readMessage()
 {
 
@@ -87,18 +99,6 @@ void MainWindow::displayError(QAbstractSocket::SocketError)
 {
 
 }
-
-void MainWindow::requestWeatherData(QNetworkReply *reply)
-{
-
-}
-
-//void MainWindow::read_dmData()
-//{
-//    //弹幕是否回东西过来了
-//    QString msg = dmSocket->readAll();
-//    qDebug()<<msg;
-//}
 
 void MainWindow::read_WertherData(QNetworkReply* reply)//获取第三方天气(新闻等)数据
 {
@@ -129,11 +129,6 @@ void MainWindow::read_WertherData(QNetworkReply* reply)//获取第三方天气(�
     //weaLabel[i]->setWeather(weatherList.at(i));
 }
 
-void MainWindow::on_zpPush_clicked()
-{
-
-}
-
 void MainWindow::on_jinjiPush_clicked()//紧急信息
 {
 //    socket->write(ui->jinjiNews->toPlainText().toUtf8());
@@ -144,9 +139,3 @@ void MainWindow::on_reqWeaButton_clicked()
 {
 
 }
-
-//void MainWindow::on_danmuPush_clicked()//发弹幕
-//{
-//    dmSocket->write(ui->danmuArea->toPlainText().toUtf8());
-//    qDebug()<<"发送了弹幕:"<<ui->danmuArea->toPlainText().toUtf8();
-//}
