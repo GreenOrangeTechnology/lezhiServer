@@ -4,17 +4,17 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = lezhiServer
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         mainwindow.cpp
-
+        weatherlabel.cpp
 HEADERS  += mainwindow.h
-
+            weatherlabel.h
 FORMS    += mainwindow.ui
+            weatherlabel.ui

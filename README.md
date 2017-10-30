@@ -27,7 +27,7 @@
 1.模块化(网络开关-按了从其他服务器获取数据就开始获取数据 开启服务器-供客户端进行使用)
 2.存储数据 并提供给下面(只是硬件模块需要的),作为手机客户端数据源 获取传感器数据
 3.客服端(非手机客户端):界面显示(传感器数据 操作 菜单) 基础的控制(串口通信) 
-4.与本地服务器进行交互 
+4.与本地服务器进行交互 弹幕发送/接收
 5.FTP (手机下载log文件)  
 
 设计
@@ -39,9 +39,11 @@ bug及风险控制(工具 API http://www.kuqin.com/qtdocument/index.html)
 2.网络连接没加判断 (之前:需要开虚拟机和先打开服务端)
 
 模块划分
-网络通信(bearer management是什么?)步骤 概念关系(理清server socket 端口 进程 之间关系 分析需求:发送弹幕是一个socket还是一个server) 坑 http://blog.csdn.net/chenlong12580/article/details/7431864
+1.网络通信(bearer management是什么?)步骤 概念关系(理清server socket 端口 进程 之间关系 分析需求:发送弹幕是一个socket还是一个server) 坑 http://blog.csdn.net/chenlong12580/article/details/7431864
 http://blog.csdn.net/chenlong12580/article/details/7434114  -udp & hostinfo
 [拆包黏包 http://blog.csdn.net/sweettool/article/details/77018506]
+2.串口模块测试单独模块加入
+3.单元测试
 
 数据结构
 

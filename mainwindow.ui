@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>mainWindow</class>
- <widget class="QMainWindow" name="mainWindow">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1050</width>
+    <height>543</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>190</y>
+      <x>80</x>
+      <y>460</y>
       <width>281</width>
       <height>71</height>
      </rect>
@@ -28,7 +28,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
+      <y>20</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -37,8 +37,8 @@
    <widget class="QPushButton" name="jinjiPush">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>10</y>
+      <x>250</x>
+      <y>30</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -50,8 +50,8 @@
    <widget class="QPushButton" name="newsPush">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>50</y>
+      <x>250</x>
+      <y>150</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -63,8 +63,8 @@
    <widget class="QPushButton" name="activityPush">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>90</y>
+      <x>250</x>
+      <y>230</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -76,8 +76,8 @@
    <widget class="QPushButton" name="zpPush">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>120</y>
+      <x>250</x>
+      <y>290</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -89,8 +89,8 @@
    <widget class="QPushButton" name="weatherPush">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>150</y>
+      <x>250</x>
+      <y>350</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -103,7 +103,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
+      <y>150</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -113,7 +113,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>220</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -123,7 +123,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>110</y>
+      <y>290</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -133,7 +133,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>150</y>
+      <y>350</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -143,13 +143,87 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>210</y>
+      <y>480</y>
       <width>61</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>调试信息</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="requestWeather">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>10</y>
+      <width>151</width>
+      <height>181</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reqWeaButton">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>10</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>获取天气</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="danmuArea">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>441</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="danmuLabel">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>60</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>弹幕</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="danmuPush">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>90</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>发射</string>
     </property>
    </widget>
   </widget>
