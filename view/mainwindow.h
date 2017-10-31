@@ -40,17 +40,22 @@ private slots:
     void connectToOtherServer();
 
     //与客户端进行交互
-    void newConnect();//获取新连接
+    void newConnect();//获取新连接-服务器开关打开后才能用
     void readMessage();//读取发来的信息 判断客户端是否在线 接收数据成功情况 调试信息等
     void sendMessage();//有人来连接就发送一条信息给它
-    void readControlOrder();//读取发来的控制命令
+    void readControlOrder();//读取发来的控制命令-用一个子页进行跳转
     void sendControlOrder();//读取发来的控制命令
     void displayError(QAbstractSocket::SocketError);
 
     //服务端私有槽
     void read_WertherData(QNetworkReply* reply);//读取天气数据
-    void on_jinjiPush_clicked();
     void on_reqWeaButton_clicked();
+    void on_urgentNotifyPush_clicked();
+    void on_requestNewsButton_clicked();
+    void on_getDHT11Data_clicked();
+    void on_deviceList_clicked();
+    void on_toggleButton_clicked();
+    void on_connectToOtherServer_clicked();
 
 private:
     quint16 blocksize;//占两个字节

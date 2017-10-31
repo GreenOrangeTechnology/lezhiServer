@@ -129,13 +129,38 @@ void MainWindow::read_WertherData(QNetworkReply* reply)//获取第三方天气(�
     //weaLabel[i]->setWeather(weatherList.at(i));
 }
 
-void MainWindow::on_jinjiPush_clicked()//紧急信息
+void MainWindow::on_reqWeaButton_clicked()
 {
-//    socket->write(ui->jinjiNews->toPlainText().toUtf8());
-//    qDebug()<<"发送了紧急信息:"<<ui->jinjiNews->toPlainText().toUtf8();
+
 }
 
-void MainWindow::on_reqWeaButton_clicked()
+void MainWindow::on_urgentNotifyPush_clicked()
+{
+    //    socket->write(ui->jinjiNews->toPlainText().toUtf8());
+    //    qDebug()<<"发送了紧急信息:"<<ui->jinjiNews->toPlainText().toUtf8();
+}
+
+void MainWindow::on_requestNewsButton_clicked()
+{
+
+}
+
+void MainWindow::on_getDHT11Data_clicked()
+{
+
+}
+
+void MainWindow::on_deviceList_clicked()
+{
+
+}
+
+void MainWindow::on_toggleButton_clicked()
+{
+
+}
+
+void MainWindow::on_connectToOtherServer_clicked()
 {
 
 }

@@ -12,9 +12,15 @@ TARGET = lezhiServer
 TEMPLATE = app
 
 SOURCES += main.cpp\
-        mainwindow.cpp
-        weatherlabel.cpp
-HEADERS  += mainwindow.h
-            weatherlabel.h
+        view\mainwindow.cpp \
+        view\globalwidget.cpp \
+        view\componentwidget.cpp
+        view\weatherlabel.cpp
+
+HEADERS  += mainwindow.h \
+        view\globalwidget.h \
+        view\componentwidget.h
+        view\weatherlabel.h
+
 FORMS    += mainwindow.ui
             weatherlabel.ui

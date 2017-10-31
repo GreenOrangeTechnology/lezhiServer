@@ -6,48 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1050</width>
-    <height>543</height>
+    <width>800</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QTextEdit" name="urgentNotify">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>460</y>
-      <width>281</width>
-      <height>71</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="jinjiNews">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
+      <x>370</x>
+      <y>50</y>
       <width>231</width>
       <height>31</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="jinjiPush">
+   <widget class="QPushButton" name="urgentNotifyPush">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>30</y>
-      <width>75</width>
+      <x>284</x>
+      <y>60</y>
+      <width>81</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>紧急通知</string>
+     <string>发送紧急通知</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="newsPush">
+   <widget class="QPushButton" name="requestNewsButton">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -57,116 +47,27 @@
      </rect>
     </property>
     <property name="text">
-     <string>新闻推送</string>
+     <string>获取新闻</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="activityPush">
+   <widget class="QPushButton" name="getDHT11Data">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>230</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>活动推送</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="zpPush">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>290</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>招聘发布</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="weatherPush">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>350</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>天气预警</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="newsText">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
+      <x>410</x>
       <y>150</y>
-      <width>231</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="activityText">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>220</y>
-      <width>231</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="zpText">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>290</y>
-      <width>231</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="weatherText">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>350</y>
-      <width>231</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="debugLabel">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>480</y>
-      <width>61</width>
-      <height>31</height>
+      <width>91</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>调试信息</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="requestWeather">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>10</y>
-      <width>151</width>
-      <height>181</height>
-     </rect>
+     <string>获取温感数据</string>
     </property>
    </widget>
    <widget class="QPushButton" name="reqWeaButton">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>10</y>
+      <x>160</x>
+      <y>150</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -175,22 +76,12 @@
      <string>获取天气</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="danmuArea">
+   <widget class="QLabel" name="serverLabel">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>441</width>
-      <height>71</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="danmuLabel">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>60</y>
-      <width>61</width>
+      <x>330</x>
+      <y>10</y>
+      <width>181</width>
       <height>31</height>
      </rect>
     </property>
@@ -201,29 +92,49 @@
      </font>
     </property>
     <property name="text">
-     <string>弹幕</string>
+     <string>智能家居服务端</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="danmuPush">
+   <widget class="QPushButton" name="toggleButton">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>90</y>
-      <width>81</width>
-      <height>41</height>
+      <x>20</x>
+      <y>20</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-     </font>
+    <property name="text">
+     <string>打开服务器</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deviceList">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>150</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
     </property>
     <property name="text">
-     <string>发射</string>
+     <string>设备列表</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="connectToOtherServer">
+    <property name="geometry">
+     <rect>
+      <x>664</x>
+      <y>430</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>连接第三方服务器</string>
     </property>
    </widget>
   </widget>
