@@ -14,16 +14,14 @@
 #include <QJsonValue>
 
 #include <QList>
-#include <weatherlabel.h>
+#include "model/globaldata.h"
+#include "view/weatherlabel.h"
+#include "configpage.h"
+#include "bluetoothlight.h"
 
 namespace Ui {
 class MainWindow;
 }
-
-#define MAX_CONNECTION 20
-#define HostPort 9875
-#define HostPort2 9876
-#define Server_Address "http://192.168.1.58/weather"
 
 class MainWindow : public QMainWindow //提供一个有菜单条、锚接窗口（例如工具条）和一个状态条的主应用程序窗口
 {
@@ -40,7 +38,7 @@ private slots:
     void connectToOtherServer();
 
     //与客户端进行交互
-    void newConnect();//获取新连接-服务器开关打开后才能用
+    void newConnect();//获取新连接-服务器开关打开后才能用 闪动星星(或toast)提示
     void readMessage();//读取发来的信息 判断客户端是否在线 接收数据成功情况 调试信息等
     void sendMessage();//有人来连接就发送一条信息给它
     void readControlOrder();//读取发来的控制命令-用一个子页进行跳转
@@ -50,14 +48,18 @@ private slots:
     //服务端私有槽
     void read_WertherData(QNetworkReply* reply);//读取天气数据
     void on_reqWeaButton_clicked();
-    void on_urgentNotifyPush_clicked();
-    void on_requestNewsButton_clicked();
-    void on_getDHT11Data_clicked();
-    void on_deviceList_clicked();
-    void on_toggleButton_clicked();
-    void on_connectToOtherServer_clicked();
+    void on_urgentNotifyPush_clicked();//发送紧急消息
+    void on_requestNewsButton_clicked();//请求新闻数据
+    void on_getDHT11Data_clicked();//获取温度传感器数据
+    void on_deviceList_clicked();//跳转到设备列表页
+    void on_toggleButton_clicked();//服务器开关-自定义按钮
+    void on_connectToOtherServer_clicked();//连接到第三方服务器-自身充当客户端角色
+    void on_settings_clicked();
+    void on_btLight_clicked();
 
 private:
+    ConfigPage settingPage;
+    BluetoothLight btPage;
     quint16 blocksize;//占两个字节
     Ui::MainWindow *ui;
     QTcpServer *server;

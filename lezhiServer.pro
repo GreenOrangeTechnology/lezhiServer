@@ -12,15 +12,25 @@ TARGET = lezhiServer
 TEMPLATE = app
 
 SOURCES += main.cpp\
+        model\globaldata.cpp\
         view\mainwindow.cpp \
         view\globalwidget.cpp \
-        view\componentwidget.cpp
+        view\componentwidget.cpp \
+    view/devicelist.cpp \
+    configpage.cpp \
+    bluetoothlight.cpp
         view\weatherlabel.cpp
 
-HEADERS  += mainwindow.h \
+
+HEADERS  += view\mainwindow.h \
+        model\globaldata.h\
         view\globalwidget.h \
-        view\componentwidget.h
+        view\componentwidget.h \
+    view/devicelist.h \
+    configpage.h \
+    bluetoothlight.h
         view\weatherlabel.h
 
-FORMS    += mainwindow.ui
-            weatherlabel.ui
+FORMS    += view\mainwindow.ui \
+    bluetoothlight.ui
+            view\weatherlabel.ui

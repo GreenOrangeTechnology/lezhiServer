@@ -157,10 +157,21 @@ void MainWindow::on_deviceList_clicked()
 
 void MainWindow::on_toggleButton_clicked()
 {
-
+    //其它功能暂不能使用-按钮设为disabled
 }
 
 void MainWindow::on_connectToOtherServer_clicked()
 {
 
+}
+
+void MainWindow::on_settings_clicked()
+{
+
+    settingPage.show();//闪了一下
+}
+
+void MainWindow::on_btLight_clicked()//蓝牙灯界面
+{
+    btPage.show();
 }
