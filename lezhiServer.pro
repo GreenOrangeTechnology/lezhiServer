@@ -13,27 +13,34 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         model\globaldata.cpp\
+        model\datacenter.cpp \
         view\mainwindow.cpp \
         view\globalwidget.cpp \
         view\componentwidget.cpp \
-    view/devicelist.cpp \
-    configpage.cpp \
-    bluetoothlight.cpp \
+        view\devicelist.cpp \
         view\weatherlabel.cpp \
-    datacenter.cpp
-
+        configpage.cpp \
+        bluetoothlight.cpp \
+        commonfunc.cpp \
+        test\unittest.cpp
 
 HEADERS  += view\mainwindow.h \
         model\globaldata.h\
+        model\datacenter.h \
         view\globalwidget.h \
         view\componentwidget.h \
-    view/devicelist.h \
-    configpage.h \
-    bluetoothlight.h \
+        view\devicelist.h \
         view\weatherlabel.h \
-    datacenter.h
+        configpage.h \
+        bluetoothlight.h \
+        commonfunc.h \
+        test\unittest.h
 
-FORMS    += view\mainwindow.ui \
-    bluetoothlight.ui \
-            view\weatherlabel.ui \
-    datacenter.ui
+    ##system(cd data/./sqlite3;);
+    ##system(.tables);
+
+FORMS    += \
+            model/datacenter.ui \
+            bluetoothlight.ui \
+            view/mainwindow.ui \
+            view/weatherlabel.ui \

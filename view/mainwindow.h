@@ -18,7 +18,7 @@
 #include "view/weatherlabel.h"
 #include "configpage.h"
 #include "bluetoothlight.h"
-#include "datacenter.h"
+#include "model/datacenter.h"
 
 namespace Ui {
 class MainWindow;

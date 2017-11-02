@@ -4,7 +4,15 @@
 #include <QWidget>
 #include <QSqlDatabase>
 
-#define SQLDB_NAME "data/smartHome2.db"
+//sql database
+//file operation
+//system
+
+#define SQLDB_NAME "C:\\sqlite3\\smartHome.db"  // data/
+
+//平台编译  pro文件里判断以调用哪个
+//#define UNIX_MODEL 1
+#define WIN_MODEL  2
 
 namespace Ui {
 class dataCenter;
@@ -23,14 +31,23 @@ private slots:
     void on_createTable_clicked();
     void on_insertData_clicked();
     void on_queryData_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::dataCenter *ui;
     QSqlDatabase mainDb;
+    bool isOpenDatabaseSuccess;
 
     bool openDatabase();
     bool closeDatabase();
     void showDatabase();//show directory database
+    bool dropDatabase();//备份数据库
+    void deleteDatabase();
+
+    void showAllTables();
+    bool deleteTables();
+
+    void showAllColumn();
 };
 
 #endif // DATACENTER_H
