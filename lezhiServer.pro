@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network testlib
+QT       += core gui network testlib sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,8 +18,9 @@ SOURCES += main.cpp\
         view\componentwidget.cpp \
     view/devicelist.cpp \
     configpage.cpp \
-    bluetoothlight.cpp
-        view\weatherlabel.cpp
+    bluetoothlight.cpp \
+        view\weatherlabel.cpp \
+    datacenter.cpp
 
 
 HEADERS  += view\mainwindow.h \
@@ -28,9 +29,11 @@ HEADERS  += view\mainwindow.h \
         view\componentwidget.h \
     view/devicelist.h \
     configpage.h \
-    bluetoothlight.h
-        view\weatherlabel.h
+    bluetoothlight.h \
+        view\weatherlabel.h \
+    datacenter.h
 
 FORMS    += view\mainwindow.ui \
-    bluetoothlight.ui
-            view\weatherlabel.ui
+    bluetoothlight.ui \
+            view\weatherlabel.ui \
+    datacenter.ui

@@ -70,10 +70,10 @@ void MainWindow::newConnect()//返回一个读写套接字，这里，可以用�
 void MainWindow::sendMessage()
 {
     QByteArray block;
-    QDataStream out(&block,QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_DefaultCompiledVersion);
-    out<<(quint16)0;//用0占位
-    out<<tr("hello!");
+//    QDataStream out(&block,QIODevice::WriteOnly);
+//    out.setVersion(QDataStream::Qt_DefaultCompiledVersion);
+//    out<<(quint16)0;//用0占位
+//    out<<tr("hello!");
 
     QTcpSocket *clientConnection = server->nextPendingConnection();
     connect(clientConnection,SIGNAL(disconnected()),clientConnection,SLOT(deleteLater()));//防止内存泄露
@@ -105,27 +105,27 @@ void MainWindow::read_WertherData(QNetworkReply* reply)//获取第三方天气(�
     qDebug()<<"成功读取天气数据";
     QString msg = reply->readAll();
     //解析json数据 封装成自己的工作类
-    weatherList.clear();
-    QJsonDocument doc = QJsonDocument::fromJson(msg.toUtf8());
-    QJsonObject obj = doc.object();
-    obj = obj.value("data").toObject();
-    //ui->label->setText(obj.value("wendu").toString());
-    //ui->label_2->setText(obj.value("ganmao").toString());
-    QJsonArray array = obj.value("forecast").toArray();//需要的天气数据
-    for(int i=0; i<array.count(); i++)
-    {
-        QJsonValue value = array.at(i);
-        QJsonObject tmp = value.toObject();
+//    weatherList.clear();
+//    QJsonDocument doc = QJsonDocument::fromJson(msg.toUtf8());
+//    QJsonObject obj = doc.object();
+//    obj = obj.value("data").toObject();
+//    //ui->label->setText(obj.value("wendu").toString());
+//    //ui->label_2->setText(obj.value("ganmao").toString());
+//    QJsonArray array = obj.value("forecast").toArray();//需要的天气数据
+//    for(int i=0; i<array.count(); i++)
+//    {
+//        QJsonValue value = array.at(i);
+//        QJsonObject tmp = value.toObject();
 
-        _Weather w;//天气类对象
-        w.riqi = tmp.value("date").toString();
-        w.fengli = tmp.value("fengli").toString();
-        w.fx = tmp.value("fengxiang").toString();
-        w.gaowen = tmp.value("high").toString();
-        w.diwen = tmp.value("low").toString();
-        w.tianqi = tmp.value("type").toString();
-        weatherList.append(w);
-    }
+//        _Weather w;//天气类对象
+//        w.riqi = tmp.value("date").toString();
+//        w.fengli = tmp.value("fengli").toString();
+//        w.fx = tmp.value("fengxiang").toString();
+//        w.gaowen = tmp.value("high").toString();
+//        w.diwen = tmp.value("low").toString();
+//        w.tianqi = tmp.value("type").toString();
+//        weatherList.append(w);
+//    }
     //weaLabel[i]->setWeather(weatherList.at(i));
 }
 
@@ -174,4 +174,10 @@ void MainWindow::on_settings_clicked()
 void MainWindow::on_btLight_clicked()//蓝牙灯界面
 {
     btPage.show();
+}
+
+void MainWindow::on_dataCenter_clicked()
+{
+    //go to dataCenter
+    dCPage.show();
 }

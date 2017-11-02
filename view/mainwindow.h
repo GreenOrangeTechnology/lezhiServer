@@ -8,16 +8,17 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QJsonValue>
+//#include <QJsonDocument>
+//#include <QJsonObject>
+//#include <QJsonArray>
+//#include <QJsonValue>
 
 #include <QList>
 #include "model/globaldata.h"
 #include "view/weatherlabel.h"
 #include "configpage.h"
 #include "bluetoothlight.h"
+#include "datacenter.h"
 
 namespace Ui {
 class MainWindow;
@@ -57,9 +58,12 @@ private slots:
     void on_settings_clicked();
     void on_btLight_clicked();
 
+    void on_dataCenter_clicked();
+
 private:
     ConfigPage settingPage;
     BluetoothLight btPage;
+    dataCenter dCPage;
     quint16 blocksize;//占两个字节
     Ui::MainWindow *ui;
     QTcpServer *server;
