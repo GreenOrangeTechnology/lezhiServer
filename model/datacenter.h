@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QSqlDatabase>
+#include <QListWidget>
+#include <QListWidgetItem>
 
 //sql database
 //file operation
@@ -32,22 +34,35 @@ private slots:
     void on_insertData_clicked();
     void on_queryData_clicked();
     void on_pushButton_clicked();
+    void on_queryShow_itemClicked(QListWidgetItem *item);
+
+    void on_showAllTables_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::dataCenter *ui;
     QSqlDatabase mainDb;
+    QListWidgetItem *tmpItem;
     bool isOpenDatabaseSuccess;
 
+    //数据库操作 优化话题
+    bool createDatabase();
     bool openDatabase();
     bool closeDatabase();
-    void showDatabase();//show directory database
+    void showDatabase();//显示数据库 可以多个
     bool dropDatabase();//备份数据库
+    bool analyzerDatabase();//分析数据库(拆分组合等操作)
     void deleteDatabase();
 
     void showAllTables();
     bool deleteTables();
+    bool showAllColumn(QString tableName);
+    bool readDatabase();
 
-    void showAllColumn();
+    //数据处理
+
+    //数据逻辑(返回 拉取)
+
+    //运行记录(新建数据库 并进行插表操作)
 };
 
 #endif // DATACENTER_H

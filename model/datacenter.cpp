@@ -4,6 +4,7 @@
 //#include <QSqlDatabase>
 #include <QtSql/QSqlDriver>
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QDebug>
 #include <QTextEdit>
 
@@ -155,15 +156,28 @@ void dataCenter::deleteDatabase()
 
 void dataCenter::showAllTables()
 {
-    QString showAllTablesSql = QString("select * from _userInfo");//%1 --> selected database
-    QSqlQuery query(showAllTablesSql);
-    //query.exec(query);
-
-    while(query.next())
+    if(mainDb.open())
     {
-        ui->showAllTables->addItem(query.value(0).toString());
+        ui->showAllTables->clear();
+        QStringList mainDbTables = mainDb.tables();
+        QStringListIterator tableIter(mainDbTables);
+        while(tableIter.hasNext()){
+            QString tableName = tableIter.next();
+            qDebug()<<tableName;
+            ui->showAllTables->addItem(tableName);
+        }
+    }else{
+        qDebug()<<"open database failed!";
+        //return 0;
     }
-    qDebug()<<"query all tables success!";
+//    QString showAllTablesSql = QString("select * from _userInfo");//selected database直接显示所有字段
+//    QSqlQuery query(showAllTablesSql);
+//    //query.exec(query);
+//    while(query.next())
+//    {
+//        ui->showAllTables->addItem(query.value(0).toString());
+//    }
+//    qDebug()<<"query all tables success!";
 }
 
 bool dataCenter::deleteTables()
@@ -171,12 +185,45 @@ bool dataCenter::deleteTables()
 
 }
 
-void dataCenter::showAllColumn()
+bool dataCenter::showAllColumn(QString tableName)//控件绑定属性方法 还是事件调用呢
 {
+    QSqlQuery query;//ctrl + i格式化代码
+    QString strTableNmae = tableName;
+    QString str = "PRAGMA table_info(" + strTableNmae + ")";
 
+    query.prepare(str);
+    if (query.exec())
+    {
+        while (query.next())
+        {
+            qDebug() << QString("字段数:%1   字段名:%2   字段类型:%3").arg(
+                            query.value(0).toString()).arg(
+                            query.value(1).toString()).arg(
+                            query.value(2).toString());
+        }
+    }
+    else
+    {
+        qDebug() << query.lastError();
+        return false;
+    }
 }
 
 void dataCenter::on_pushButton_clicked()
 {
-    openDatabase();
+    //openDatabase();函数退出会断掉连接
+    //showAllTables();
+    showAllColumn("people");
+}
+
+void dataCenter::on_queryShow_itemClicked(QListWidgetItem *item)//点击选中Item
+{
+    QString itemText = QString(item->text());
+    qDebug()<<itemText;//未能正确输出文字
+}
+
+void dataCenter::on_showAllTables_itemClicked(QListWidgetItem *item)
+{
+    //根据传回的item值来执行查表操作
+
 }
