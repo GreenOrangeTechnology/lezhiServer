@@ -58,7 +58,7 @@ private:
     bool showAllColumn(QString tableName);
     bool readDatabase();
 
-    //数据处理
+    //数据处理  树-双向链表
 
     //数据逻辑(返回 拉取)
 
