@@ -8,7 +8,7 @@
 //file operation
 //system
 
-#define SQLDB_NAME "C:\\sqlite3\\smartHome.db"  // data/
+#define SQLDB_NAME "C:\\sqlite3\\family.db"  // data/smartHome
 
 //平台编译  pro文件里判断以调用哪个
 //#define UNIX_MODEL 1

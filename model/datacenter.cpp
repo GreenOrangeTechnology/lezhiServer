@@ -74,7 +74,7 @@ void dataCenter::on_queryData_clicked()
     QSqlQuery query(queryTableSql);
     while(query.next())
     {
-        ui->queryShow->addItem(query.value(0).toString());
+        ui->queryShow->addItem(query.value(1).toString());
     }
     qDebug()<<"query table success!";
 }
